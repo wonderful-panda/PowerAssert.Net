@@ -140,6 +140,8 @@
     <Content Include="Approvals\EndToEndTest.TestDifferingLists.approved.txt" />
     <Content Include="Approvals\EndToEndTest.UnaryNotOfBinary.approved.txt" />
     <Content Include="Approvals\EndToEndTest.VBCallModuleFunction.approved.txt" />
+    <Content Include="Approvals\EndToEndTest.VBCompareObjectEqual.approved.txt" />
+    <Content Include="Approvals\EndToEndTest.VBCompareObjectNotEqual.approved.txt" />
     <Content Include="Approvals\EndToEndTest.VBGetModuleProperty.approved.txt" />
     <Content Include="Approvals\EndToEndTest.VBSimpleClosure.approved.txt" />
     <Content Include="Approvals\EndToEndTest.VBStringEqual.approved.txt" />

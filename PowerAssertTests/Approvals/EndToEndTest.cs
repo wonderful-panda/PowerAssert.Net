@@ -12,6 +12,7 @@ using NUnit.Framework;
 using PowerAssert;
 using PowerAssert.MultipleAssertions;
 using VBExpressions = VisualBasicTestCases.Expressions;
+using VBStrictOff = VisualBasicTestCases.ExpressionsStrictOff;
 
 namespace PowerAssertTests.Approvals
 {
@@ -557,6 +558,18 @@ namespace PowerAssertTests.Approvals
         public void VBGetModuleProperty()
         {
             ApproveException(VBExpressions.GetModuleProperty);
+        }
+
+        [Test]
+        public void VBCompareObjectEqual()
+        {
+            ApproveException(VBStrictOff.CompareObjectEqual);
+        }
+
+        [Test]
+        public void VBCompareObjectNotEqual()
+        {
+            ApproveException(VBStrictOff.CompareObjectNotEqual);
         }
 
         void ApproveException(Expression<Func<bool>> func)

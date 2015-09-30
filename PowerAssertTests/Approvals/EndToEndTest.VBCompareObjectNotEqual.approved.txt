@@ -1,0 +1,12 @@
+﻿System.Exception: IsTrue failed, expression was:
+
+(bool)CompareObjectNotEqual(x, y, False)
+.    .\_________ _________/ .  .
+\_ __/          |           .  .
+  |             |           |  True
+  |             |           True
+  |             False
+  False
+
+   at PowerAssert.PAssert.IsTrue(Expression`1 expression, CallerLocation location) in ...\PAssert.cs
+   at PowerAssertTests.Approvals.EndToEndTest.ApproveException(Expression`1 func) in ...\EndToEndTest.cs
