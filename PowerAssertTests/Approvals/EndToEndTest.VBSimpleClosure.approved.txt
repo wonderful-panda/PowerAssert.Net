@@ -1,0 +1,10 @@
+﻿System.Exception: IsTrue failed, expression was:
+
+x == 0
+. __
+. |
+| False
+1
+
+   at PowerAssert.PAssert.IsTrue(Expression`1 expression, CallerLocation location) in ...\PAssert.cs
+   at PowerAssertTests.Approvals.EndToEndTest.ApproveException(Expression`1 func) in ...\EndToEndTest.cs

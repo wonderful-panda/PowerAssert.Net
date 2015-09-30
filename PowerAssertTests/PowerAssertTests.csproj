@@ -79,6 +79,10 @@
       <Project>{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}</Project>
       <Name>PowerAssert</Name>
     </ProjectReference>
+    <ProjectReference Include="..\VisualBasicTestCases\VisualBasicTestCases.vbproj">
+      <Project>{9f561897-3b70-41b0-b2e4-328895ee30ba}</Project>
+      <Name>VisualBasicTestCases</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
@@ -135,6 +139,11 @@
     <Content Include="Approvals\EndToEndTest.StringsThatDifferAndAreComparedCaseInsensitively.approved.txt" />
     <Content Include="Approvals\EndToEndTest.TestDifferingLists.approved.txt" />
     <Content Include="Approvals\EndToEndTest.UnaryNotOfBinary.approved.txt" />
+    <Content Include="Approvals\EndToEndTest.VBCallModuleFunction.approved.txt" />
+    <Content Include="Approvals\EndToEndTest.VBGetModuleProperty.approved.txt" />
+    <Content Include="Approvals\EndToEndTest.VBSimpleClosure.approved.txt" />
+    <Content Include="Approvals\EndToEndTest.VBStringEqual.approved.txt" />
+    <Content Include="Approvals\EndToEndTest.VBStringNotEqual.approved.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,6 +11,8 @@ using Microsoft.CSharp.RuntimeBinder;
 using PowerAssert.Hints;
 using PowerAssert.Infrastructure.Nodes;
 using System.Diagnostics;
+using VBCompiler = Microsoft.VisualBasic.CompilerServices;
+
 
 namespace PowerAssert.Infrastructure
 {
@@ -210,11 +212,31 @@ namespace PowerAssert.Infrastructure
             }
             return new MethodCallNode
             {
-                Container = e.Object == null ? new ConstantNode {Text = e.Method.DeclaringType.Name} : Parse(e.Object),
+                Container = e.Object == null ? GetStaticTypeContainer(e.Method.DeclaringType) : Parse(e.Object),
                 MemberName = e.Method.Name,
                 MemberValue = GetValue(e),
                 Parameters = parameters.ToList(),
             };
+        }
+
+        Node GetStaticTypeContainer(Type type)
+        {
+            if (type == TestClass)
+            {
+                return new ConstantNode { Text = "$PAssert.TestClass" };
+            }
+            else if (type == typeof(VBCompiler.Operators))
+            {
+                return new ConstantNode { Text = "$PAssert.VBOperators" };
+            }
+            else if (type.GetCustomAttributes(typeof(VBCompiler.StandardModuleAttribute), false).Any())
+            {
+                return new ConstantNode { Text = "$PAssert.VBStandardModule" };
+            }
+            else
+            {
+                return new ConstantNode { Text = type.Name };
+            }
         }
 
         Node ParseExpression(ConstantExpression e)

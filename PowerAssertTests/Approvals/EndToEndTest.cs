@@ -11,6 +11,7 @@ using ApprovalTests.Utilities;
 using NUnit.Framework;
 using PowerAssert;
 using PowerAssert.MultipleAssertions;
+using VBExpressions = VisualBasicTestCases.Expressions;
 
 namespace PowerAssertTests.Approvals
 {
@@ -526,6 +527,36 @@ namespace PowerAssertTests.Approvals
                 poly.Log("PolyAssert.Log messages are only printed if the test fails");
                 poly.Try(() => Assert.True(true));
             }
+        }
+
+        [Test]
+        public void VBSimpleClosure()
+        {
+            ApproveException(VBExpressions.SimpleClosure);
+        }
+
+        [Test]
+        public void VBStringEqual()
+        {
+            ApproveException(VBExpressions.StringEqual);
+        }
+
+        [Test]
+        public void VBStringNotEqual()
+        {
+            ApproveException(VBExpressions.StringNotEqual);
+        }
+
+        [Test]
+        public void VBCallModuleFunction()
+        {
+            ApproveException(VBExpressions.CallModuleFunction);
+        }
+
+        [Test]
+        public void VBGetModuleProperty()
+        {
+            ApproveException(VBExpressions.GetModuleProperty);
         }
 
         void ApproveException(Expression<Func<bool>> func)

@@ -15,14 +15,22 @@ namespace PowerAssert.Infrastructure.Nodes
 
         internal override void Walk(NodeWalker walker, int depth, bool wrap)
         {
-            Container.Walk(walker, depth + 1, Priority < Container.Priority);
+            var constant = Container as ConstantNode;
+            var isSpecialContainer = constant != null && constant.Text.StartsWith("$PAssert");
+            if (!isSpecialContainer)
+            {
+                Container.Walk(walker, depth + 1, Priority < Container.Priority);
+            }
             if (MemberName == "get_Item")
             {
                 walker("[", MemberValue, depth);
             }
             else
             {
-                walker(".");
+                if (!isSpecialContainer)
+                {
+                    walker(".");
+                }
                 walker(MemberName, MemberValue, depth);
             }
         }
