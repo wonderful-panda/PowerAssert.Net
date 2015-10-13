@@ -24,6 +24,7 @@ namespace PowerAssert.Infrastructure
         public Type TestClass { get; private set; }
         public bool TextOnly { get; private set; }
 
+        readonly NodeTransformer Transformer = new VBOperatorsSimplifier();
         readonly ParameterExpression[] _parameters;
         readonly object[] _parameterValues;
         int _nextParamIndex;
@@ -49,7 +50,7 @@ namespace PowerAssert.Infrastructure
         {
             try
             {
-                return ParseExpression((dynamic) e);
+                return Transformer.Transform(ParseExpression((dynamic) e));
             }
             catch (RuntimeBinderException exception)
             {

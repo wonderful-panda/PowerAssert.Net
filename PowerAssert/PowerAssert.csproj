@@ -86,6 +86,8 @@
     <Compile Include="Infrastructure\Nodes\NewObjectNode.cs" />
     <Compile Include="Infrastructure\Nodes\Node.cs" />
     <Compile Include="Infrastructure\Nodes\UnaryNode.cs" />
+    <Compile Include="Infrastructure\Nodes\NodeTransformer.cs" />
+    <Compile Include="Infrastructure\Nodes\VBOperatorsSimplifier.cs" />
     <Compile Include="Infrastructure\ObjectFormatter.cs" />
     <Compile Include="Infrastructure\ReplacementVisitor.cs" />
     <Compile Include="Infrastructure\Util.Generated.cs">
