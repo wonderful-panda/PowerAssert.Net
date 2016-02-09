@@ -1,0 +1,14 @@
+﻿System.Exception: IsTrue failed, expression was:
+
+あいう == "アイウ" && アイウ == "あいう"
+.    . ..          __ .    . ..
+.    . __          |  .    . __
+\_ __/ |           |  \_ __/ |
+  |    |           |    |    False, strings differ at index 0, 'ア' != 'あ'
+  |    |           |    "アイウ"
+  |    |           False
+  |    False, strings differ at index 0, 'あ' != 'ア'
+  "あいう"
+
+   at PowerAssert.PAssert.IsTrue(Expression`1 expression, CallerLocation location) in ...\PAssert.cs
+   at PowerAssertTests.Approvals.EndToEndTest.ApproveException(Expression`1 func) in ...\EndToEndTest.cs

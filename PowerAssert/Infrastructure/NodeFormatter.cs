@@ -85,18 +85,26 @@ namespace PowerAssert.Infrastructure
             return PrettyPrint(node, out ignored).ToString();
         }
 
+        static int GetWidth(string text)
+        {
+            return text.Sum(c => ' ' <= c && c <= '~' || '｡' <= c && c <= 'ﾟ' ? 1 : 2);
+        }
+
         static StringBuilder PrettyPrint(Node constantNode, out List<NodeInfo> outNodeInfos)
         {
             StringBuilder textLine = new StringBuilder();
+            var location = 0;
             var nodeInfos = new List<NodeInfo>();
 
             constantNode.Walk((text, value, depth) =>
             {
+                var width = GetWidth(text);
                 if (value != null)
                 {
-                    nodeInfos.Add(new NodeInfo {Location = textLine.Length, Width = text.Length, Value = value, Depth = depth});
+                    nodeInfos.Add(new NodeInfo {Location = location, Width = width, Value = value, Depth = depth});
                 }
                 textLine.Append(text);
+                location += width;
             }, 0, false);
 
             outNodeInfos = nodeInfos;

@@ -475,6 +475,14 @@ namespace PowerAssertTests.Approvals
         }
 
         [Test]
+        public void EastAsianChars()
+        {
+            var \u3042\u3044\u3046 = "\u3042\u3044\u3046";
+            var \u30a2\u30a4\u30a6 = "\u30a2\u30a4\u30a6";
+            ApproveException(() => \u3042\u3044\u3046 == "\u30a2\u30a4\u30a6" && \u30a2\u30a4\u30a6 == "\u3042\u3044\u3046");
+        }
+
+        [Test]
         public void PolyAssert()
         {
             var x = 6;
